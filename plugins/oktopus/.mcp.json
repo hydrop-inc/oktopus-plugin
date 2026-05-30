@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "oktopus": {
+      "type": "http",
+      "url": "https://www.oktopus.lat/mcp",
+      "headers": {
+        "Authorization": "Bearer ${OKTOPUS_API_KEY}"
+      }
+    }
+  }
+}

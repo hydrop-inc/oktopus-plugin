@@ -1,0 +1,14 @@
+{
+  "name": "oktopus",
+  "owner": {
+    "name": "Oktopus",
+    "email": "hola@oktopus.lat"
+  },
+  "plugins": [
+    {
+      "name": "oktopus",
+      "source": "./plugins/oktopus",
+      "description": "El riel de pago contra entrega (COD) para LATAM: conectá tu agente a Oktopus para operar tu tienda de dropshipping con Dropi — ver el negocio, gestionar y empujar órdenes contra entrega, ajustar precios y pulir landings."
+    }
+  ]
+}
