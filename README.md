@@ -1,5 +1,7 @@
 # Oktopus — plugin de Claude Code (riel COD para LATAM)
 
+> ⭐ **¿Te sirve Oktopus?** Dejanos una estrella — nos ayuda a llegar a más dropshippers de LATAM y a ser el riel de contraentrega de referencia para agentes.
+
 Conectá tu agente al **riel de pago contra entrega (cash on delivery / COD) de Oktopus** para LATAM. Operá tu tienda de dropshipping **Dropi** desde el agente: ver el negocio, gestionar órdenes contra entrega, empujarlas a Dropi, ajustar precios y editar landings. El reemplazo de Shopify + Releasit para COD.
 
 > **Oktopus es el "ACP del contra entrega":** mientras el Agentic Commerce Protocol cobra con tarjeta/wallet en US/EU, Oktopus cobra **contra entrega** y crea la orden en **Dropi** para LATAM (Colombia, México, Perú, Ecuador, Chile, Paraguay, Argentina, Guatemala).
