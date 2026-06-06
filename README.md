@@ -6,8 +6,9 @@ Conectá tu agente al **riel de pago contra entrega (cash on delivery / COD) de 
 
 ## Qué trae
 
-- **MCP server `oktopus`** (Streamable HTTP, remoto) con 14 tools para operar el riel COD.
+- **MCP server `oktopus`** (Streamable HTTP, remoto) con 50+ tools para montar y operar el riel COD de punta a punta.
 - **Skill `montar-tienda-cod`** — la receta end-to-end para montar y operar una tienda de pago contra entrega con Oktopus + Dropi.
+- **Skill `conectar-mi-pagina`** — conectá TU propia página (hecha donde sea) al riel COD, o exportá tu landing de Oktopus a código (HTML/React) para hostearla en tu Vercel. Incluye el playbook de página que convierte (estructura + gatillos + pixel/CAPI), acuñar el checkout y verificar con una orden de prueba.
 
 ## Instalación
 
@@ -39,7 +40,7 @@ Pedile a tu agente, por ejemplo:
 > "¿Cómo va el negocio este mes?"
 > "Subí el precio del producto X y poné la garantía de 30 días en su landing."
 
-La skill `montar-tienda-cod` se invoca sola cuando el contexto lo amerita, o explícitamente con `/oktopus:montar-tienda-cod`.
+Las skills se invocan solas cuando el contexto lo amerita, o explícitamente: `/oktopus:montar-tienda-cod` (operar tu tienda) y `/oktopus:conectar-mi-pagina` (conectar tu propia página / ejectar tu landing a código).
 
 ## Recursos
 
