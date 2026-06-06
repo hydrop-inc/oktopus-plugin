@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "oktopus",
   "displayName": "Oktopus — riel COD para LATAM",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Conecta tu agente al riel de pago contra entrega (cash on delivery / COD) de Oktopus para LATAM. Operá tu tienda de dropshipping Dropi desde el agente: ver el negocio, gestionar órdenes contra entrega, empujarlas a Dropi, ajustar precios y editar landings. El reemplazo de Shopify + Releasit para COD.",
   "author": {
     "name": "Oktopus by Hydrop",

@@ -23,9 +23,9 @@ Necesitás el MCP server `oktopus` conectado, con una API key con scope `mcp:inv
 
 Oktopus tiene tres superficies; no confundirlas:
 
-- **MCP (estas tools `okto_*`)** → **operar** lo que ya existe: leer el negocio, gestionar órdenes COD, empujarlas a Dropi, ajustar precios, editar landings.
-- **Dashboard web** (https://www.oktopus.lat/app) → **crear desde cero**: crear la tienda, crear productos, generar landings con IA, y **conectar la cuenta de Dropi**. El MCP NO crea productos/landings ni conecta Dropi — para eso, guiá al usuario al dashboard.
-- **Checkout COD embebible / API REST** → **crear órdenes** desde una página propia (ver paso 4).
+- **MCP (estas tools `okto_*`)** → **operar y construir**: leer el negocio, gestionar órdenes COD, empujarlas a Dropi, ajustar precios, editar landings, **crear productos** (`okto_product_create` / importar del catálogo Dropi), **generar landings con IA** (`okto_landing_generate_full`), **acuñar el checkout** (`okto_checkout_key_create`) y **exportar landings a código** (`okto_landing_eject`).
+- **Dashboard web** (https://www.oktopus.lat/app) → lo único que el MCP NO hace: **conectar la cuenta de Dropi** (OAuth) y conectar Meta/pixel. Para eso, guiá al usuario al dashboard.
+- **Checkout COD embebible / API REST** → **crear órdenes** desde una página propia (ver paso 4, y la skill `conectar-mi-pagina` para el flujo completo).
 
 ## 2. Diagnóstico (siempre primero)
 
