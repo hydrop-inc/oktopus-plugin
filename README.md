@@ -12,7 +12,7 @@ Conectá tu agente de IA (Claude Code, Claude Desktop, Cursor, Cline…) al **ri
 
 ---
 
-## Las tools (53+ por categoría)
+## Las tools, por categoría
 
 El MCP server `oktopus` expone el riel COD de punta a punta:
 
@@ -24,7 +24,7 @@ El MCP server `oktopus` expone el riel COD de punta a punta:
 | **Órdenes contra entrega (COD)** | `okto_order_create_cod`, `okto_order_get`, `okto_order_update_status`, `okto_orders_list`, `okto_orders_recent`, `okto_orders_unsynced_dropi` |
 | **Dropi** | `okto_dropi_link`, `okto_dropi_connection`, `okto_dropi_push_order`, `okto_dropi_products_search`, `okto_dropi_product_get`, `okto_dropi_coverage_overview`, `okto_dropi_coverage_get`, `okto_dropi_coverage_cities`, `okto_dropi_webhooks_recent` |
 | **WhatsApp / agentes de venta** | `okto_wa_status`, `okto_wa_conversations`, `okto_wa_conversation_get`, `okto_wa_agent_configure`, `okto_wa_agent_get`, `okto_wa_agent_toggle`, `okto_wa_diego_toggle`, `okto_wa_handoff` |
-| **Checkout / tu propia página** | `okto_checkout_key_create`, `okto_page_playbook`, `okto_pixel_get`, `okto_pixel_set` |
+| **Checkout / tu propia página** | `okto_landing_upload_html`, `okto_checkout_key_create`, `okto_page_playbook`, `okto_pixel_get`, `okto_pixel_set` |
 | **Tienda** | `okto_store_create`, `okto_store_get`, `okto_store_update_settings` |
 | **Soporte** | `okto_support_ask` |
 
@@ -32,8 +32,9 @@ El MCP server `oktopus` expone el riel COD de punta a punta:
 
 ## Qué trae el plugin
 
-- **MCP server `oktopus`** (Streamable HTTP, remoto) con las 53+ tools de arriba para montar y operar el riel COD de punta a punta.
+- **MCP server `oktopus`** (Streamable HTTP, remoto) con las tools de arriba para montar y operar el riel COD de punta a punta.
 - **Skill `montar-tienda-cod`** — la receta end-to-end para montar y operar una tienda de pago contra entrega con Oktopus + Dropi.
+- **Skill `crear-mi-pagina`** — el agente escribe una página a medida para tu producto (un HTML, el diseño que quiera) y la sube a Oktopus, que la hostea en `<slug>.mipedido.lat` con el checkout COD, Dropi, WhatsApp y pixel + CAPI cableados. Incluye el contrato del HTML, preview a 390px, publicación y verificación con un pedido real.
 - **Skill `conectar-mi-pagina`** — conectá TU propia página (hecha donde sea) al riel COD, o exportá tu landing de Oktopus a código (HTML/React) para hostearla en tu Vercel. Incluye el playbook de página que convierte (estructura + gatillos + pixel/CAPI), acuñar el checkout y verificar con una orden de prueba.
 
 ## Instalación
@@ -74,7 +75,7 @@ Pedile a tu agente, por ejemplo:
 > *"Subí el precio del producto X y poné la garantía de 30 días en su landing."*
 > *"Creá una orden de pago contra entrega para Juan en Bogotá, producto Y."*
 
-Las skills se invocan solas cuando el contexto lo amerita, o explícitamente: `/oktopus:montar-tienda-cod` (operar tu tienda) y `/oktopus:conectar-mi-pagina` (conectar tu propia página / ejectar tu landing a código).
+Las skills se invocan solas cuando el contexto lo amerita, o explícitamente: `/oktopus:montar-tienda-cod` (operar tu tienda), `/oktopus:crear-mi-pagina` (crear tu página y subirla a Oktopus) y `/oktopus:conectar-mi-pagina` (conectar tu propia página / ejectar tu landing a código).
 
 ## Recursos
 
