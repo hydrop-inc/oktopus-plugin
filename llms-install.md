@@ -53,7 +53,7 @@ Si el cliente MCP soporta OAuth para servers remotos, agregá el server solo con
 
 ## Verificar la conexión
 
-Una vez conectado, listá las tools: deberías ver ~47 herramientas `okto_*` (métricas, productos, landings, órdenes COD, Dropi, WhatsApp, checkout). Prueba rápida:
+Una vez conectado, listá las tools: deberías ver las herramientas `okto_*` (métricas, productos, landings, órdenes COD, Dropi, WhatsApp, checkout). Prueba rápida:
 
 > "Mostrame las métricas de mi negocio y las órdenes contra entrega de hoy."
 

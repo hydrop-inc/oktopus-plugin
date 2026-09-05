@@ -8,7 +8,7 @@
     {
       "name": "oktopus",
       "source": "./plugins/oktopus",
-      "description": "El riel de pago contra entrega (COD) para LATAM: conectá tu agente a Oktopus para operar tu tienda de dropshipping con Dropi — ver el negocio, gestionar y empujar órdenes contra entrega, ajustar precios y pulir landings."
+      "description": "El riel de pago contra entrega (COD) para LATAM: conectá tu agente a Oktopus para operar tu tienda de dropshipping con Dropi — ver el negocio, gestionar y empujar órdenes contra entrega, ajustar precios, pulir landings y crear tu propia página con el checkout COD."
     }
   ]
 }
