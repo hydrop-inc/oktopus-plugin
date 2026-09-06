@@ -104,6 +104,22 @@ okto_landing_publish({ landing_id })
 
 Esperá (el deploy pasa por la cola de Vercel; puede tardar varios minutos). Consultá `okto_landing_get({ id: landing_id })` hasta que `status` sea `"live"` y `public_url` tenga valor (`https://<slug>.mipedido.lat`). **No vuelvas a llamar publish** mientras esperás. Abrí `public_url` en el navegador y repetí el checklist del paso 6 sobre la página real.
 
+## 7b. Pago anticipado con Confío (solo tiendas de Colombia)
+
+Si `okto_confio_status({ store_id })` dice `pagar_ahora_activo: true`, la página vende con **dos botones**: "Pedir · pago contra entrega" y "Pagar ahora · X% de descuento" (el % lo define la tienda; el servidor lo cobra). El formulario de Oktopus ya lo maneja solo; lo que vos ponés en el HTML es el **segundo CTA** al lado de cada CTA principal:
+
+```html
+<a class="btn-secondary okto-prepaid-only" href="#oktopus-checkout" data-okto-pay="confio">
+  Pagar ahora con descuento · <span data-price-prepaid="89900"></span>
+</a>
+```
+
+- `data-okto-pay="confio"` selecciona "Pagar ahora" en el formulario y baja hasta él; `data-price-prepaid` se formatea ya descontado; `okto-prepaid-only` se oculta sola si la tienda no tiene Confío. **Nunca escribas el % ni el precio descontado a mano.**
+- Ponelo igual aunque la tienda todavía no tenga Confío: cuando lo conecte y republique, aparece.
+- Tienda fuera de Colombia: no existe pago anticipado; no lo menciones en el copy.
+- Cambiar el descuento o activar solo-prepago: `okto_confio_settings({ store_id, descuento_pct, solo_prepago })`. Apagarlo en una landing puntual: `okto_landing_confio_toggle({ landing_id, apagado: true })`. Todo aplica al republicar.
+- Prueba (después de publicar): pedido con "Pagar ahora" con datos del usuario → redirige al checkout de Confío con el monto con descuento (se verifica sin pagar); la orden queda pendiente y se cancela con `okto_order_update_status`.
+
 ## 8. Verificá que vende
 
 **No hay modo test para pedidos desde una landing:** toda orden desde la página pública es real. La prueba se hace con una orden real que después se cancela.
@@ -134,3 +150,4 @@ Si el playbook dijo que la CAPI no está lista (`pixel_y_capi.capi_purchase_serv
 5. **Confirmá antes de publicar** y antes del pedido de prueba; el pedido es real, con datos del usuario, y se cancela.
 6. **El pixel va antes de publicar** (se hornea en el deploy). Nunca lo pegues en el HTML.
 7. **Multi-tenant aislado**: la key opera solo la cuenta del usuario; el producto y la landing tienen que ser suyos.
+8. **Pago anticipado = Confío, solo Colombia**: nunca pidas tarjeta en tu HTML; el segundo botón lleva `data-okto-pay="confio"` y Oktopus decide si se ve.
