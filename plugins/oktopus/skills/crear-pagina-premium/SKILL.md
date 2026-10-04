@@ -29,9 +29,10 @@ No memorices los límites de una sesión anterior: el molde es la fuente y puede
 
 ## 2. Por cada producto
 
-1. **Producto.** `okto_product_lookup` / `okto_products_list` → `product_id`. Si no existe: `okto_product_create`, o `okto_dropi_products_search` + `okto_dropi_import_product`. Tiene que estar activo y con precio.
+1. **Producto y precio.** `okto_product_lookup` / `okto_products_list` → `product_id`. Si no existe: `okto_product_create`, o `okto_dropi_products_search` + `okto_dropi_import_product`. Tiene que estar activo y con precio.
+   - El precio de venta y los packs salen de **`okto_price_recommend`** (Precio Inteligente): le pasas el costo del producto y la tienda, y devuelve `recommended_price` y `packs` (1, 2 y 3 unidades). Crea el producto con ese `price` y con `cost`. **Nunca inventes el precio** con un multiplicador; si no conoces el costo, pregúntaselo al usuario.
 2. **Referencia.** `okto_product_images_get({ product_id })` → `uploaded_images` son las fotos reales. Descárgalas: son la referencia de forma, color, piezas y etiquetas. No se publican tal cual.
-3. **Textos.** Escribe `copy` dentro de los límites. Español neutro, de tú. Describe el producto y su uso; no prometas resultados. Escribe además un titular y un apoyo para cada imagen.
+3. **Textos.** Escribe `copy` dentro de los límites. Español neutro, de tú. Describe el producto y su uso; no prometas resultados. Escribe además un titular y un apoyo para cada imagen. Todo texto le habla al comprador: nunca menciones "la ficha", "el proveedor", "el catálogo" ni lo que te falta saber. Si un dato no está (por ejemplo, la dosis), remite a la etiqueta del producto.
 4. **Imágenes.** Genera las 8 siguiendo la dirección de arte de cada posición, con las fotos reales como referencia y el titular y el apoyo escritos dentro de la imagen, grandes y legibles en un celular. Guárdalas como `01.png` … `08.png`.
 5. **Medida.** Si tu modelo no genera 3:4, lleva cada imagen a 960×1280 agregando márgenes del color del fondo. **Nunca recortes**: se corta el texto.
 6. **Subida.** `okto_premium_image_upload` → `upload_url` (sirve una hora para todas). Una petición por imagen:
@@ -39,8 +40,8 @@ No memorices los límites de una sesión anterior: el molde es la fuente y puede
    curl -sS -X POST --data-binary @01.png -H "Content-Type: image/png" "$UPLOAD_URL"
    ```
    Cada respuesta trae `{ "ok": true, "url": "…" }`. Guarda la `url` de cada una. Si responde `wrong_ratio`, vuelve al paso 5.
-7. **Página.** `okto_landing_create_premium({ product_id, copy, images, packs })` con esas `url`. Si responde `ok:false`, lee `problems[]`, corrige justo eso y vuelve a llamar.
-8. **Publicar.** La página queda en **borrador**. Publica con `okto_landing_publish({ landing_id })` solo si el usuario te pidió publicar; si no, entrégale `studio_url` para que la revise.
+7. **Página.** `okto_landing_create_premium({ product_id, copy, images, packs })` con esas `url` y los `packs` de `okto_price_recommend`. Si responde `ok:false`, lee `problems[]`, corrige justo eso y vuelve a llamar.
+8. **Publicar.** La página queda en **borrador**. Publica con `okto_landing_publish({ landing_id })` solo si el usuario te pidió publicar; si no, entrégale `studio_url` para que la revise. Tu cliente puede pedir aprobación para este paso (publicar cambia algo visible en internet): es normal. Después espera a que `okto_landing_get` diga `live` y dé la URL pública; si la tienda está recibiendo otra actualización, puede tardar unos minutos.
 
 Para corregir una página que ya creaste: la misma llamada con `replace_landing_id`, y vuelve a publicar.
 
