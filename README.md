@@ -34,6 +34,7 @@ El MCP server `oktopus` expone el riel COD de punta a punta:
 
 - **MCP server `oktopus`** (Streamable HTTP, remoto) con las tools de arriba para montar y operar el riel COD de punta a punta.
 - **Skill `montar-tienda-cod`** — la receta end-to-end para montar y operar una tienda de pago contra entrega con Oktopus + Dropi.
+- **Skill `crear-pagina-premium`** — el agente crea la página con la plantilla nativa Premium Editorial poniendo él los textos y las imágenes (generadas con sus propios modelos): lee el molde, sube las 8 imágenes y Oktopus arma la página con checkout COD, pixel y la carga más rápida. Sin HTML y sin gastar la IA de la cuenta. Sirve para montar catálogos completos de un proveedor. Disponible para las cuentas que ya tienen la plantilla Premium.
 - **Skill `crear-mi-pagina`** — el agente escribe una página a medida para tu producto (un HTML, el diseño que quiera) y la sube a Oktopus, que la hostea en `<slug>.mipedido.lat` con el checkout COD, Dropi, WhatsApp y pixel + CAPI cableados. Incluye el contrato del HTML, preview a 390px, publicación y verificación con un pedido real.
 - **Skill `conectar-mi-pagina`** — conectá TU propia página (hecha donde sea) al riel COD, o exportá tu landing de Oktopus a código (HTML/React) para hostearla en tu Vercel. Incluye el playbook de página que convierte (estructura + gatillos + pixel/CAPI), acuñar el checkout y verificar con una orden de prueba.
 
@@ -75,7 +76,7 @@ Pedile a tu agente, por ejemplo:
 > *"Subí el precio del producto X y poné la garantía de 30 días en su landing."*
 > *"Creá una orden de pago contra entrega para Juan en Bogotá, producto Y."*
 
-Las skills se invocan solas cuando el contexto lo amerita, o explícitamente: `/oktopus:montar-tienda-cod` (operar tu tienda), `/oktopus:crear-mi-pagina` (crear tu página y subirla a Oktopus) y `/oktopus:conectar-mi-pagina` (conectar tu propia página / ejectar tu landing a código).
+Las skills se invocan solas cuando el contexto lo amerita, o explícitamente: `/oktopus:montar-tienda-cod` (operar tu tienda), `/oktopus:crear-pagina-premium` (páginas Premium con tus textos e imágenes), `/oktopus:crear-mi-pagina` (crear tu página y subirla a Oktopus) y `/oktopus:conectar-mi-pagina` (conectar tu propia página / ejectar tu landing a código).
 
 ## Recursos
 
